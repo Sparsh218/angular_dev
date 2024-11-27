@@ -1,0 +1,15 @@
+<div class="col" *ngIf="(editAllowed === 1) ; else notAllowed">
+    <p class="row">Server Name</p>
+    <input type="text" class="row" #server_name id="nameinput">
+    <p class="row">Server Type</p>
+    <button class="row btn dropdown-toggle" data-bs-toggle="dropdown">{{serverStatusTemp}}</button>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" (click)="serverValueChange('Active')">Active</a></li>
+        <li><a class="dropdown-item" (click)="serverValueChange('Inactive')">Inactive</a></li>
+      </ul>
+      <br>
+    <button class="row btn btn-primary" (click)="updateServer(server_name.value, server_name.value)">Update Server</button>
+</div>
+<ng-template #notAllowed>
+    <h4>You are not allowed to edit this server</h4>
+</ng-template>
